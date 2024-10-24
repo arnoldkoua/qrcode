@@ -9,7 +9,7 @@ import os
 st.title("Génération de calendriers avec QR codes")
 
 # Charger le fichier Excel
-uploaded_file = st.file_uploader("Téléchargez le fichier Excel", type=["xlsx"])
+uploaded_file = st.file_uploader("Téléchargez le fichier Excel", type=["xlsx"], key="excel_uploader")
 
 if uploaded_file is not None:
     # Lire les données depuis le fichier Excel
@@ -21,7 +21,7 @@ if uploaded_file is not None:
         st.error(f"Le fichier Excel doit contenir les colonnes suivantes : {required_columns}")
     else:
         # Téléchargement de l'image du calendrier
-        calendar_image = st.file_uploader("Téléchargez l'image du calendrier", type=["png", "jpg", "jpeg"])
+        calendar_image = st.file_uploader("Téléchargez l'image du calendrier", type=["png", "jpg", "jpeg"], key="calendar_image_uploader")
         
         if calendar_image is not None:
             # Convertir l'image téléchargée en un chemin temporaire
